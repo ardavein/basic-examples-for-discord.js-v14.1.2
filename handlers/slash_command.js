@@ -12,9 +12,10 @@ data: { // Declaring the handler data.
         let command = require(`../slash_commands/${dir}/${command_file}`); // Declaring the command file to run it.
         if (command.data && command.data.name) await client.slash_commands.set(command.data.name, command); // Saving the command to at <'discord.js'>.Collection(). (It is important because we need this when users executing command).
         };
-    });
+   
         const body = client.slash_commands.map(c => c.data); // Declaring the body as the all commands saved as <Client>.slash_commands.  
         const rest = new REST({ version: 9 }).setToken(client.config.token); // Creating a new v9 rest with our token.
             await rest.put( Routes.applicationCommands(client.config.user_id), { body: body }); // Saving commands as application commadns
-    },
+     });
+     },
 };
